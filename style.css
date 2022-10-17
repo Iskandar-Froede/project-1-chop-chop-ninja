@@ -1,0 +1,17 @@
+body {
+  display: flex;
+  margin: 0;
+  
+  overflow-y: hidden;
+}
+
+#game-area {
+  margin: auto;
+  height: 500;
+  width: 800;
+  border: 1px solid black;
+  background-size: cover;
+  box-shadow: 1px 2px 60px rgba(0,0,0,0.4)
+  overflow-x: hidden;
+}
+
