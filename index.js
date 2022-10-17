@@ -3,26 +3,36 @@
 const canvas = document.querySelector('canvas');
 canvas.style.border = '4px solid #D2B48C';
 const ctx = canvas.getContext('2d');
-console.log(ctx);
+const startButton = document.querySelector('.play-img');
+const startScreen = document.querySelector('.start-game');
 
-canvas.width = 800;
-canvas.height = 500;
 
 const background = new Image();
-background.src = './imgs/start-end-game.jpg'
+background.src = './img/start-background.jpg';
 
 const playerImg = new Image ();
-player.src = "./imgs/player icon.png";
+playerImg.src = "./img/player icon.png";
 
-let playerX = 200;
-let playerY = 500;
+let playerSizeX = 70;
+let playerSizeY = 100;
+let playerPositionX = 20;
+let playerPositionY = 270;
 
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 const animate = () => {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  ctx.drawImage(playerImg, 0, 0, playerX, playerY);
+  ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
   requestAnimationFrame(animate);
 }
 animate();
 
+
+
+window.onload = () => {
+  canvas.style.display = "none";
+  startButton.addEventListener('click', () => {
+    startScreen.style.display = "none";
+    canvas.style.display = "block";
+  })
+}
