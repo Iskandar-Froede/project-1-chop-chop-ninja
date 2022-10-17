@@ -25,7 +25,46 @@ const animate = () => {
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
   requestAnimationFrame(animate);
 }
-animate();
+
+// move the player
+if ()
+
+
+function startGame () {
+  startScreen.style.display = 'none'
+    animate()
+
+   // player keyboard movement
+  document.addEventListener ('keydown', event => {
+
+    if (event.code === 'ArrowLeft') {
+      console.log('Left key is pressed');
+      playerMoveLeft = true;
+    } else if (event.code === 'ArrowRight') {
+      console.log('Right key is pressed');
+      playerMoveRight = true;
+    } else if (event.code === 'ArrowUp') {
+      console.log('Up key is pressed');
+      playerMoveUp = true;
+    } else if (event.code === 'Arrowdown') {
+      console.log('Down key is pressed');
+      playerMoveDown = true;
+    }
+  });
+
+  // player keyboard stop movement
+  document.addEventListener('keyup', () =>  {
+    playerMoveLeft = false;
+    playerMoveRight = false;
+    playerMoveUp = false;
+    playerMoveDown = false;
+});
+
+}
+
+
+
+
 
 
 
