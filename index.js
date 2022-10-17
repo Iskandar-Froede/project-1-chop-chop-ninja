@@ -9,34 +9,78 @@ const startScreen = document.querySelector('.start-game');
 
 const background = new Image();
 background.src = './img/start-background.jpg';
+const background2 = new Image();
+background2.src = "./img/start-background.jpg"
 
 const playerImg = new Image ();
 playerImg.src = "./img/player icon.png";
+
+
+let backgroundX = 0;
+let background2X = canvas.width;
 
 let playerSizeX = 70;
 let playerSizeY = 100;
 let playerPositionX = 20;
 let playerPositionY = 270;
 
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+// / by default player is not moving
+
+let playerMoveRight = false; 
+let playerMoveLeft = false;
+let playerMoveUp = false;
+let playerMoveDown = false;
+
+let isGameOver = false;
+let gameId = 0; 
+
+
 
 const animate = () => {
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+  // ctx.clearRect();
+  ctx.drawImage(background, backgroundX, 0, canvas.width, canvas.height);
+  ctx.drawImage(background2, background2X, 0, canvas.width, canvas.height);
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
-  requestAnimationFrame(animate);
-}
+  backgroundX -= 2;
+  background2X -=2;
+
+ if (backgroundX < -canvas.width) {
+  backgroundX = canvas.width;
+ } 
+
+ if (background2X < -canvas.width) {
+  background2X = canvas.width;
+ }
 
 // move the player
-if ()
 
+if (playerMoveRight === true) {
+    playerPositionX += 2;
+} else if (playerMoveLeft === true) {
+    playerPositionX -= 2;
+} else if (playerMoveUp === true) {
+    playerPositionY -= 5;
+} else if (playerMoveDown === true) {
+    playerPositionY +=5;
+}
 
+// game is over
+
+if (isGameOver === true) {
+  cancelAnimationFrame(gameId)
+} else {
+  gameId = requestAnimationFrame (animate);  // start the new frame for the game
+}
+}
+
+// starting the game
 function startGame () {
   startScreen.style.display = 'none'
     animate()
 
-   // player keyboard movement
-  document.addEventListener ('keydown', event => {
+// player keyboard movement
 
+  document.addEventListener ('keydown', event => {
     if (event.code === 'ArrowLeft') {
       console.log('Left key is pressed');
       playerMoveLeft = true;
@@ -50,28 +94,27 @@ function startGame () {
       console.log('Down key is pressed');
       playerMoveDown = true;
     }
-  });
+  })
 
   // player keyboard stop movement
+
   document.addEventListener('keyup', () =>  {
     playerMoveLeft = false;
     playerMoveRight = false;
     playerMoveUp = false;
     playerMoveDown = false;
-});
-
+})
 }
 
 
-
-
-
-
+// hiding and showing the start screen
 
 window.onload = () => {
   canvas.style.display = "none";
   startButton.addEventListener('click', () => {
     startScreen.style.display = "none";
     canvas.style.display = "block";
+
+    startGame();
   })
 }
