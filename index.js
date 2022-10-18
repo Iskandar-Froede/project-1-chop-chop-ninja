@@ -8,12 +8,16 @@ const startScreen = document.querySelector('.start-game');
 
 
 const background = new Image();
-background.src = './img/start-background.jpg';
+background.src = './img/game-background.jpg';
+
 const background2 = new Image();
-background2.src = "./img/start-background.jpg"
+background2.src = "./img/game-background.jpg"
 
 const playerImg = new Image ();
-playerImg.src = "./img/player icon.png";
+playerImg.src = "./img/player-img.png";
+
+const obstacle = new Image ();
+obstacle.src = "./img/obstacle.png"
 
 
 let backgroundX = 0;
@@ -34,6 +38,20 @@ let playerMoveDown = false;
 let isGameOver = false;
 let gameId = 0; 
 
+/*
+
+
+let obstacle = [];
+let obstacleSizeX = 110;
+let obstacleSizeY = 100;
+let obstacleX = 100;
+let obstacleY = 270;
+
+let catchObstacle = 0;
+
+*/
+
+
 
 
 const animate = () => {
@@ -41,14 +59,15 @@ const animate = () => {
   ctx.drawImage(background, backgroundX, 0, canvas.width, canvas.height);
   ctx.drawImage(background2, background2X, 0, canvas.width, canvas.height);
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
+  ctx.drawImage(obstacle, 100, 270, 110, 100);
+  
+  
   backgroundX -= 2;
   background2X -=2;
-
- if (backgroundX < -canvas.width) {
+  if (backgroundX < -canvas.width) {
   backgroundX = canvas.width;
  } 
-
- if (background2X < -canvas.width) {
+  if (background2X < -canvas.width) {
   background2X = canvas.width;
  }
 
@@ -63,6 +82,10 @@ if (playerMoveRight === true) {
 } else if (playerMoveDown === true) {
     playerPositionY +=5;
 }
+
+
+// move obstacle
+
 
 // game is over
 
@@ -90,7 +113,7 @@ function startGame () {
     } else if (event.code === 'ArrowUp') {
       console.log('Up key is pressed');
       playerMoveUp = true;
-    } else if (event.code === 'Arrowdown') {
+    } else if (event.code === 'ArrowDown') {
       console.log('Down key is pressed');
       playerMoveDown = true;
     }
