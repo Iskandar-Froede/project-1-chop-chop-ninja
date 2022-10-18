@@ -18,7 +18,7 @@ playerImg.src = "./img/player-img.png";
 
 const obstacle = new Image ();
 obstacle.src = "./img/shuriken.png"
-//obstacle.src = "./img/obstacle.png"
+
 
 
 let backgroundX = 0;
@@ -36,6 +36,9 @@ let playerMoveLeft = false;
 let playerMoveUp = false;
 let playerMoveDown = false;
 
+
+let score = 0;
+
 let isGameOver = false;
 let gameId = 0; 
 
@@ -43,7 +46,7 @@ let gameId = 0;
 // obstacles
 let obstacles = [ {
   img: obstacle,
-  size: 40,
+  size: 40, // which effect ???
   x: canvas.width + 200,
   y: 300
 },
@@ -81,7 +84,8 @@ const animate = () => {
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
   
   
-  
+  // move canvas
+
   backgroundX -= 2;
   background2X -=2;
   if (backgroundX < -canvas.width) {
@@ -94,13 +98,13 @@ const animate = () => {
 // move the player
 
 if (playerMoveRight === true) {
-    playerPositionX += 2;
-} else if (playerMoveLeft === true) {
-    playerPositionX -= 2;
+    playerPositionX += 5;
+} else if (playerMoveLeft === true && playerPositionX > 0) {
+    playerPositionX -= 5;
 } else if (playerMoveUp === true) {
-    playerPositionY -= 5;
-} else if (playerMoveDown === true) {
-    playerPositionY +=5;
+    playerPositionY -= 8;
+} else if (playerMoveDown === true && playerPositionY + playerSizeY < canvas.height) {
+    playerPositionY +=8;
 }
 
 
@@ -110,17 +114,32 @@ for (let i = 0; i < obstacles.length; i += 1) {
   ctx.drawImage(obstacles[i].img, obstacles[i].x, obstacles[i].y, 40, 40);
   obstacles[i].x -= 5
 
-if (obstacles[i].x < 0 ) {
+if (obstacles[i].x < -200 ) {
   obstacles[i].x = canvas.width + 1000;
 }
 
 
-
+// collision with obstacles
+if (
+  obstacles[i].x + 40 <= 0 && 
+  obstacles[i].x + 40 >= -4
+  
+) {
+  score++
+  console.log(score)
 }
 
-
-
-
+if (
+  playerPositionX +  playerSizeX - 15 > obstacles[i].x &&
+  playerPositionY + playerSizeY - 20 > obstacles[i].y &&
+  playerPositionY < obstacles[i].y + 20 &&
+  playerPositionX < obstacles[i].x + 20
+  
+) {
+isGameOver = true;
+}
+}
+// console.log(gameId);
 
 // game is over
 
