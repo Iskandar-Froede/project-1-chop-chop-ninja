@@ -8,10 +8,10 @@ const startScreen = document.querySelector('.start-game');
 
 
 const background = new Image();
-background.src = './img/game-background.jpg';
+background.src = './img/game-background.png';
 
 const background2 = new Image();
-background2.src = "./img/game-background.jpg"
+background2.src = "./img/game-background.png"
 
 const playerImg = new Image ();
 playerImg.src = "./img/player-img.png";
