@@ -39,18 +39,37 @@ let playerMoveDown = false;
 let isGameOver = false;
 let gameId = 0; 
 
-/*
 
+// obstacles
+let obstacles = [ {
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 200,
+  y: 300
+},
+{
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 600,
+  y: 280
 
-let obstacle = [];
-let obstacleSizeX = 110;
-let obstacleSizeY = 100;
-let obstacleX = 100;
-let obstacleY = 270;
+},
+{
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 900,
+  y: 320
 
-let catchObstacle = 0;
+},
+{
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 1200,
+  y: 240
 
-*/
+}
+
+];
 
 
 
@@ -60,7 +79,7 @@ const animate = () => {
   ctx.drawImage(background, backgroundX, 0, canvas.width, canvas.height);
   ctx.drawImage(background2, background2X, 0, canvas.width, canvas.height);
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
-  ctx.drawImage(obstacle, 500, 300, 40, 40);
+  
   
   
   backgroundX -= 2;
@@ -85,7 +104,22 @@ if (playerMoveRight === true) {
 }
 
 
-// move obstacle
+// loop & move obstacles
+
+for (let i = 0; i < obstacles.length; i += 1) {
+  ctx.drawImage(obstacles[i].img, obstacles[i].x, obstacles[i].y, 40, 40);
+  obstacles[i].x -= 5
+
+if (obstacles[i].x < 0 ) {
+  obstacles[i].x = canvas.width + 1000;
+}
+
+
+
+}
+
+
+
 
 
 // game is over

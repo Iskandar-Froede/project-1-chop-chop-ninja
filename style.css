@@ -7,10 +7,17 @@ body {
 
 
 .start-game {
-  background-image: url("./img/start-background.jpg");
+  background-image: url("./img/start-screen.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 400px;
+  width: 700px;
+  background-position: 3px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center
 }
 
 h1 {
