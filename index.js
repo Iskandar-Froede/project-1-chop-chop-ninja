@@ -17,7 +17,8 @@ const playerImg = new Image ();
 playerImg.src = "./img/player-img.png";
 
 const obstacle = new Image ();
-obstacle.src = "./img/obstacle.png"
+obstacle.src = "./img/shuriken.png"
+//obstacle.src = "./img/obstacle.png"
 
 
 let backgroundX = 0;
@@ -59,7 +60,7 @@ const animate = () => {
   ctx.drawImage(background, backgroundX, 0, canvas.width, canvas.height);
   ctx.drawImage(background2, background2X, 0, canvas.width, canvas.height);
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
-  ctx.drawImage(obstacle, 100, 270, 110, 100);
+  ctx.drawImage(obstacle, 500, 300, 40, 40);
   
   
   backgroundX -= 2;
