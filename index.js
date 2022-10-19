@@ -7,6 +7,14 @@ const startButton = document.querySelector('.play-img');
 
 const startScreen = document.querySelector('.start-game');
 
+const gameOver = document.querySelector('.game-over')
+
+const restart = document.querySelector('.restart')
+
+//adding some cool song
+//const song = new Audio('../Eye_of_the_Tiger.mp3')
+//song.volume = 0.1
+
 const background = new Image();
 background.src = './img/game-background.png';
 
@@ -19,8 +27,7 @@ playerImg.src = "./img/player-img.png";
 const obstacle = new Image ();
 obstacle.src = "./img/shuriken.png"
 
-const gameoverScreen = new Image();
-gameoverScreen.src = "./img/gameover-screen.png"
+
 
 // background
 let backgroundX = 0;
@@ -45,6 +52,12 @@ let score = 0;
 // gameover
 let isGameOver = false;
 let gameId = 0; 
+
+
+function endGame() {
+  canvas.style.display = "none";
+  gameOver.style.display = "block";
+}
 
 
 // obstacles
@@ -158,9 +171,14 @@ isGameOver = true;
 }
 }
 
+
+
 // game is over
 if (isGameOver === true) {
   cancelAnimationFrame(gameId)
+
+endGame ()
+
 } else {
   gameId = requestAnimationFrame (animate);  // start the new frame for the game
 }
@@ -202,12 +220,71 @@ function startGame () {
 // hiding and showing the start screen
   window.onload = () => {
   canvas.style.display = "none";
+  gameOver.style.display = "none";
+
+
   startButton.addEventListener('click', () => {
     startScreen.style.display = "none";
     canvas.style.display = "block";
-    gameoverScreen.style.display = "none"
+
+      //song.play()
   
     startGame();
 
   })
+  restart.addEventListener('click', () => {
+    gameOver.style.display = "none";
+    canvas.style.display = "block";
+
+    isGameOver = false;
+    score = 0;
+    obstacles = [ {
+      img: obstacle,
+      size: 40, // which effect ???
+      x: canvas.width + 5,
+      y: 300
+    },
+    {
+      img: obstacle,
+      size: 40,
+      x: canvas.width + 300,
+      y: 280
+    
+    },
+    {
+      img: obstacle,
+      size: 40,
+      x: canvas.width + 550,
+      y: 330
+    
+    },
+    {
+      img: obstacle,
+      size: 40,
+      x: canvas.width + 800,
+      y: 310
+    
+    },
+    {
+      img: obstacle,
+      size: 40,
+      x: canvas.width + 1050,
+      y: 280
+    
+    },
+    {
+      img: obstacle,
+      size: 40,
+      x: canvas.width + 1500,
+      y: 300
+    
+    }
+  ]
+
+  playerPositionX = 20;
+  playerPositionY = 270;
+  startGame();
+  
+  })
+
 }

@@ -24,7 +24,13 @@ h1 {
   text-align: center;
 }
 
-#playerScore {
-  font-size: 30px;
+.game-over {
+  background-image: url("./img/gameover-screen.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 700px;
+  background-position: 3px;
+
 }
 
