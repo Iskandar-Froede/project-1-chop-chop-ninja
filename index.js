@@ -51,28 +51,42 @@ let gameId = 0;
 let obstacles = [ {
   img: obstacle,
   size: 40, // which effect ???
-  x: canvas.width + 200,
+  x: canvas.width + 5,
   y: 300
 },
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 600,
+  x: canvas.width + 300,
   y: 280
 
 },
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 900,
-  y: 320
+  x: canvas.width + 550,
+  y: 330
 
 },
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 1100,
-  y: 240
+  x: canvas.width + 800,
+  y: 310
+
+},
+{
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 1050,
+  y: 280
+
+},
+{
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 1500,
+  y: 300
 
 }
 ];
@@ -93,7 +107,7 @@ const animate = () => {
 
   // move canvas
   backgroundX -= 2;
-  background2X -=2;
+  background2X -= 2;
   if (backgroundX < -canvas.width) {
   backgroundX = canvas.width;
  } 
@@ -106,7 +120,7 @@ if (playerMoveRight === true) {
     playerPositionX += 5;
 } else if (playerMoveLeft === true && playerPositionX > 0) {
     playerPositionX -= 5;
-} else if (playerMoveUp === true) {
+} else if (playerMoveUp === true && playerPositionY + playerSizeX > canvas.height - 160) {
     playerPositionY -= 8;
 } else if (playerMoveDown === true && playerPositionY + playerSizeY < canvas.height) {
     playerPositionY +=8;
