@@ -19,6 +19,9 @@ playerImg.src = "./img/player-img.png";
 const obstacle = new Image ();
 obstacle.src = "./img/shuriken.png"
 
+const gameoverScreen = new Image();
+gameoverScreen.src = "./img/gameover-screen.png"
+
 // background
 let backgroundX = 0;
 let background2X = canvas.width;
@@ -37,6 +40,7 @@ let playerMoveDown = false;
 
 // score
 let score = 0;
+
 
 // gameover
 let isGameOver = false;
@@ -67,7 +71,7 @@ let obstacles = [ {
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 1200,
+  x: canvas.width + 1100,
   y: 240
 
 }
@@ -81,7 +85,12 @@ const animate = () => {
   ctx.drawImage(background2, background2X, 0, canvas.width, canvas.height);
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
   
+// showing score on canvas
   
+    ctx.font = "20px Cooper Black";
+    ctx.fillText("Score: " + score, 20, 40)
+  
+
   // move canvas
   backgroundX -= 2;
   background2X -=2;
@@ -113,12 +122,12 @@ if (obstacles[i].x < -200 ) {
   obstacles[i].x = canvas.width + 1000;
 }
 
-
 // collision with obstacles
 if (
   obstacles[i].x + 40 <= 0 && 
   obstacles[i].x + 40 >= -4
   
+// score
 ) {
   score++
   console.log(score)
@@ -135,7 +144,6 @@ isGameOver = true;
 }
 }
 
-
 // game is over
 if (isGameOver === true) {
   cancelAnimationFrame(gameId)
@@ -148,6 +156,7 @@ if (isGameOver === true) {
 function startGame () {
   startScreen.style.display = 'none'
     animate()
+
 
 // player keyboard movement
   document.addEventListener ('keydown', event => {
@@ -182,7 +191,9 @@ function startGame () {
   startButton.addEventListener('click', () => {
     startScreen.style.display = "none";
     canvas.style.display = "block";
+    gameoverScreen.style.display = "none"
   
     startGame();
+
   })
 }
