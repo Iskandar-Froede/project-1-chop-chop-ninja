@@ -1,11 +1,11 @@
-// canvas
 
 const canvas = document.querySelector('canvas');
 canvas.style.border = '4px solid #D2B48C';
 const ctx = canvas.getContext('2d');
-const startButton = document.querySelector('.play-img');
-const startScreen = document.querySelector('.start-game');
 
+const startButton = document.querySelector('.play-img');
+
+const startScreen = document.querySelector('.start-game');
 
 const background = new Image();
 background.src = './img/game-background.png';
@@ -19,26 +19,26 @@ playerImg.src = "./img/player-img.png";
 const obstacle = new Image ();
 obstacle.src = "./img/shuriken.png"
 
-
-
+// background
 let backgroundX = 0;
 let background2X = canvas.width;
 
+// player position and size
 let playerSizeX = 70;
 let playerSizeY = 100;
 let playerPositionX = 20;
 let playerPositionY = 270;
 
 // / by default player is not moving
-
 let playerMoveRight = false; 
 let playerMoveLeft = false;
 let playerMoveUp = false;
 let playerMoveDown = false;
 
-
+// score
 let score = 0;
 
+// gameover
 let isGameOver = false;
 let gameId = 0; 
 
@@ -71,11 +71,9 @@ let obstacles = [ {
   y: 240
 
 }
-
 ];
 
-
-
+// showing images on the canvas
 
 const animate = () => {
   // ctx.clearRect();
@@ -85,7 +83,6 @@ const animate = () => {
   
   
   // move canvas
-
   backgroundX -= 2;
   background2X -=2;
   if (backgroundX < -canvas.width) {
@@ -96,7 +93,6 @@ const animate = () => {
  }
 
 // move the player
-
 if (playerMoveRight === true) {
     playerPositionX += 5;
 } else if (playerMoveLeft === true && playerPositionX > 0) {
@@ -109,7 +105,6 @@ if (playerMoveRight === true) {
 
 
 // loop & move obstacles
-
 for (let i = 0; i < obstacles.length; i += 1) {
   ctx.drawImage(obstacles[i].img, obstacles[i].x, obstacles[i].y, 40, 40);
   obstacles[i].x -= 5
@@ -139,10 +134,9 @@ if (
 isGameOver = true;
 }
 }
-// console.log(gameId);
+
 
 // game is over
-
 if (isGameOver === true) {
   cancelAnimationFrame(gameId)
 } else {
@@ -156,7 +150,6 @@ function startGame () {
     animate()
 
 // player keyboard movement
-
   document.addEventListener ('keydown', event => {
     if (event.code === 'ArrowLeft') {
       console.log('Left key is pressed');
@@ -174,7 +167,6 @@ function startGame () {
   })
 
   // player keyboard stop movement
-
   document.addEventListener('keyup', () =>  {
     playerMoveLeft = false;
     playerMoveRight = false;
@@ -185,13 +177,12 @@ function startGame () {
 
 
 // hiding and showing the start screen
-
-window.onload = () => {
+  window.onload = () => {
   canvas.style.display = "none";
   startButton.addEventListener('click', () => {
     startScreen.style.display = "none";
     canvas.style.display = "block";
-
+  
     startGame();
   })
 }

@@ -24,5 +24,7 @@ h1 {
   text-align: center;
 }
 
-
+#playerScore {
+  font-size: 30px;
+}
 
