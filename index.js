@@ -7,12 +7,16 @@ const startButton = document.querySelector('.play-img');
 
 const startScreen = document.querySelector('.start-game');
 
-const gameOver = document.querySelector('.game-over')
+const gameOver = document.querySelector('.game-over');
 
-const restart = document.querySelector('.restart')
+const restart = document.querySelector('.restart');
+
+const showScore = document.querySelector('.ninja-score span');
+
+
 
 //adding some cool song
-//const song = new Audio('../Eye_of_the_Tiger.mp3')
+//const song = new Audio('../Eye_of_the_Tiger.mp3'); 
 //song.volume = 0.1
 
 const background = new Image();
@@ -49,6 +53,8 @@ let playerMoveDown = false;
 let score = 0;
 
 
+
+
 // gameover
 let isGameOver = false;
 let gameId = 0; 
@@ -57,13 +63,15 @@ let gameId = 0;
 function endGame() {
   canvas.style.display = "none";
   gameOver.style.display = "block";
+  showScore.innerHTML = score;
+  
 }
 
 
 // obstacles
 let obstacles = [ {
   img: obstacle,
-  size: 40, // which effect ???
+  size: 40, 
   x: canvas.width + 5,
   y: 300
 },
@@ -176,8 +184,8 @@ isGameOver = true;
 // game is over
 if (isGameOver === true) {
   cancelAnimationFrame(gameId)
-
 endGame ()
+
 
 } else {
   gameId = requestAnimationFrame (animate);  // start the new frame for the game
