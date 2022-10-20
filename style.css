@@ -5,7 +5,6 @@ body {
   justify-content: center;
 }
 
-
 .start-game {
   background-image: url("./img/start-screen.jpg");
   background-size: cover;
@@ -13,11 +12,10 @@ body {
   height: 400px;
   width: 700px;
   background-position: 3px;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
 }
 
 h1 {
@@ -31,7 +29,6 @@ h1 {
   height: 400px;
   width: 700px;
   background-position: 3px;
-
   display: flex;
   flex-direction: column;
   align-items: center;

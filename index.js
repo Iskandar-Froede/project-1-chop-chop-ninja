@@ -1,4 +1,3 @@
-
 const canvas = document.querySelector('canvas');
 canvas.style.border = '4px solid #D2B48C';
 const ctx = canvas.getContext('2d');
@@ -31,8 +30,6 @@ playerImg.src = "./img/player-img.png";
 const obstacle = new Image ();
 obstacle.src = "./img/shuriken.png"
 
-
-
 // background
 let backgroundX = 0;
 let background2X = canvas.width;
@@ -52,13 +49,9 @@ let playerMoveDown = false;
 // score
 let score = 0;
 
-
-
-
 // gameover
 let isGameOver = false;
 let gameId = 0; 
-
 
 function endGame() {
   canvas.style.display = "none";
@@ -103,28 +96,20 @@ let obstacles = [ {
   x: canvas.width + 1500,
   y: 300
 }
-
-
-
 ];
 
 // showing images on the canvas
-
 const animate = () => {
   // ctx.clearRect();
   ctx.drawImage(background, backgroundX, 0, canvas.width, canvas.height);
   ctx.drawImage(background2, background2X, 0, canvas.width, canvas.height);
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
   
-// showing score on canvas
-  
+// showing score on canvas 
     ctx.font = "20px Cooper Black";
     ctx.fillText("Score: " + score, 20, 40)
 
-
-  
-
-  // move canvas
+// move canvas
   backgroundX -= 2;
   background2X -= 2;
   if (backgroundX < -canvas.width) {
@@ -145,7 +130,6 @@ if (playerMoveRight === true) {
     playerPositionY +=8;
 }
 
-
 // loop & move obstacles
 for (let i = 0; i < obstacles.length; i += 1) {
   ctx.drawImage(obstacles[i].img, obstacles[i].x, obstacles[i].y, 40, 40);
@@ -164,7 +148,6 @@ if (
 ) {
   score++
   console.log(score)
-
 }
 
 if (
@@ -175,18 +158,13 @@ if (
   
 ) {
 isGameOver = true;
-
-
 }
 }
-
-
 
 // game is over
 if (isGameOver) {
   cancelAnimationFrame(gameId)
 endGame ()
-
 
 } else {
   gameId = requestAnimationFrame (animate);  // start the new frame for the game
@@ -196,8 +174,7 @@ endGame ()
 // starting the game
 function startGame () {
   startScreen.style.display = 'none'
-    animate()
-
+  animate()
 
 // player keyboard movement
   document.addEventListener ('keydown', event => {
@@ -216,7 +193,7 @@ function startGame () {
     }
   })
 
-  // player keyboard stop movement
+// player keyboard stop movement
   document.addEventListener('keyup', () =>  {
     playerMoveLeft = false;
     playerMoveRight = false;
@@ -225,31 +202,27 @@ function startGame () {
 })
 }
 
-
 // hiding and showing the start screen
   window.onload = () => {
   canvas.style.display = "none";
   gameOver.style.display = "none";
 
-
   startButton.addEventListener('click', () => {
-    startScreen.style.display = "none";
-    canvas.style.display = "block";
+  startScreen.style.display = "none";
+  canvas.style.display = "block";
 
-      //song.play()
+//song.play()
   
-    startGame();
-
-    
-
+  startGame();
   })
-  restart.addEventListener('click', () => {
-    gameOver.style.display = "none";
-    canvas.style.display = "block";
 
-    isGameOver = false;
-    score = 0;
-    obstacles = [ {
+  restart.addEventListener('click', () => {
+  gameOver.style.display = "none";
+  canvas.style.display = "block";
+
+  isGameOver = false;
+  score = 0;
+  obstacles = [ {
       img: obstacle,
       size: 40, // which effect ???
       x: canvas.width + 5,
@@ -290,17 +263,14 @@ function startGame () {
       y: 300
     
     }
-  ]
+  ];
 
   playerPositionX = 20;
   playerPositionY = 270;
   startGame();
-  
   })
-
-}
-
+};
 
 
 
-// showScore.innerHTML = score;
+
