@@ -12,7 +12,9 @@ const restart = document.querySelector('.restart');
 
 const showScore = document.querySelector('.ninja-score');
 
-
+const song = new Audio();
+song.src = "./pixelated-adventure.mp3";
+song.volume = 0.1
 
 //adding some cool song
 //const song = new Audio('../Eye_of_the_Tiger.mp3'); 
@@ -163,8 +165,9 @@ isGameOver = true;
 
 // game is over
 if (isGameOver) {
-  cancelAnimationFrame(gameId)
-endGame ()
+cancelAnimationFrame(gameId)
+endGame ();
+song.pause();
 
 } else {
   gameId = requestAnimationFrame (animate);  // start the new frame for the game
@@ -211,7 +214,7 @@ function startGame () {
   startScreen.style.display = "none";
   canvas.style.display = "block";
 
-//song.play()
+  song.play()
   
   startGame();
   })
@@ -224,7 +227,7 @@ function startGame () {
   score = 0;
   obstacles = [ {
       img: obstacle,
-      size: 40, // which effect ???
+      size: 40, 
       x: canvas.width + 5,
       y: 300
     },
