@@ -3,6 +3,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 100px;
 }
 
 .start-game {
@@ -17,7 +18,6 @@ body {
   align-items: center;
   justify-content:center;
   background-color: #D2B48C;
-  margin: 80px;
 }
 
 .play-img {
