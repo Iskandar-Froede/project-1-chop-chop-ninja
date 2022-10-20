@@ -28,5 +28,30 @@ States y States Transitions
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 * startGame
 * gameScreen
-* gameOverScreen with restart
+* gameOverScreen 
+* restartGame
 
+Task
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+* create HTML, CSS and JS
+* create DOM
+* build canvas, game screen and game over screen
+* create addEventListener
+* add animation function
+* add start function
+* add player movement
+* add obstacles
+* build collision
+* add score
+* build game over function
+* create restart function
+* add audio
+
+Links
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Presentation slides
+  
+* 
+
+* 
