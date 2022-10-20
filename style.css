@@ -16,6 +16,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content:center;
+  background-color: #D2B48C;
+  margin: 80px;
+}
+
+.play-img {
+  margin-top: 40px;
 }
 
 h1 {
@@ -26,6 +32,7 @@ h1 {
   background-image: url("./img/gameover-screen.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #D2B48C;
   height: 400px;
   width: 700px;
   background-position: 3px;
@@ -50,3 +57,4 @@ font-size: 16px;
 color: #A37C4D;
 margin: 100px;
 }
+

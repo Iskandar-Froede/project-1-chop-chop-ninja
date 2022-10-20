@@ -5,8 +5,10 @@ const ctx = canvas.getContext('2d');
 const startButton = document.querySelector('.play-img');
 
 const startScreen = document.querySelector('.start-game');
+startScreen.style.border = '4px solid #D2B48C';
 
 const gameOver = document.querySelector('.game-over');
+gameOver.style.border = '4px solid #D2B48C';
 
 const restart = document.querySelector('.restart');
 
@@ -14,11 +16,7 @@ const showScore = document.querySelector('.ninja-score');
 
 const song = new Audio();
 song.src = "./pixelated-adventure.mp3";
-song.volume = 0.1
-
-//adding some cool song
-//const song = new Audio('../Eye_of_the_Tiger.mp3'); 
-//song.volume = 0.1
+song.volume = 0.1;
 
 const background = new Image();
 background.src = './img/game-background.png';
@@ -59,26 +57,27 @@ function endGame() {
   canvas.style.display = "none";
   gameOver.style.display = "flex";
   showScore.innerHTML = score;
+  song.pause();
 }
 
 // obstacles
 let obstacles = [ {
   img: obstacle,
   size: 40, 
-  x: canvas.width + 5,
-  y: 270
+  x: canvas.width + 10,
+  y: 290
 },
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 300,
-  y: 270
+  x: canvas.width + 200,
+  y: 200
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 550,
-  y: 330
+  y: 270
 },
 {
   img: obstacle,
@@ -96,7 +95,7 @@ let obstacles = [ {
   img: obstacle,
   size: 40,
   x: canvas.width + 1500,
-  y: 300
+  y: 150
 }
 ];
 
@@ -126,7 +125,7 @@ if (playerMoveRight === true) {
     playerPositionX += 5;
 } else if (playerMoveLeft === true && playerPositionX > 0) {
     playerPositionX -= 5;
-} else if (playerMoveUp === true && playerPositionY + playerSizeX > canvas.height - 140) {
+} else if (playerMoveUp === true && playerPositionY + playerSizeX > canvas.height - 127) {
     playerPositionY -= 8;
 } else if (playerMoveDown === true && playerPositionY + playerSizeY < canvas.height) {
     playerPositionY +=8;
@@ -135,7 +134,7 @@ if (playerMoveRight === true) {
 // loop & move obstacles
 for (let i = 0; i < obstacles.length; i += 1) {
   ctx.drawImage(obstacles[i].img, obstacles[i].x, obstacles[i].y, 40, 40);
-  obstacles[i].x -= 5
+  obstacles[i].x -= 6;
 
 if (obstacles[i].x < -200 ) {
   obstacles[i].x = canvas.width + 1000;
@@ -149,7 +148,7 @@ if (
 // score
 ) {
   score++
-  console.log(score)
+//  console.log(score)
 }
 
 if (
@@ -227,15 +226,15 @@ function startGame () {
   score = 0;
   obstacles = [ {
       img: obstacle,
-      size: 40, 
+      size: 50, 
       x: canvas.width + 5,
-      y: 300
+      y: 200
     },
     {
       img: obstacle,
       size: 40,
-      x: canvas.width + 300,
-      y: 280
+      x: canvas.width + 100,
+      y: 300
     
     },
     {
@@ -250,7 +249,6 @@ function startGame () {
       size: 40,
       x: canvas.width + 800,
       y: 310
-    
     },
     {
       img: obstacle,
@@ -264,13 +262,13 @@ function startGame () {
       size: 40,
       x: canvas.width + 1500,
       y: 300
-    
     }
   ];
 
   playerPositionX = 20;
   playerPositionY = 270;
   startGame();
+  song.play()
   })
 };
 
