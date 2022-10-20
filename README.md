@@ -2,8 +2,7 @@ CHOP CHOP NINJA
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Description
 
-CHOP CHOP NINJA is a single player game with a ninja as the main character. The ninja gets the score by avoiding the shurikens and the game ends if the ninja hits 
-by the shuriken. The movement of ninja is using the arrow keys.
+CHOP CHOP NINJA is a single player game with a ninja as the main character. The ninja needs to move fast to avoid the shurikens while gets a scorefor not getting hit. The game ends if the ninja hits by the shuriken. The control movement of ninja is using the arrow keys.
 
 MVP
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -14,7 +13,7 @@ MVP
 
 Backlog
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-* increasing the obstacles
+* increasing the gap of the obstacles
 
 Data Structure
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
