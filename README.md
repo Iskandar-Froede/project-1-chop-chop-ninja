@@ -50,8 +50,6 @@ Task
 Links
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-* Presentation slides
-  	[Google Slide](shorturl.at/mrNX5)
-* 
+* Presentation slides: [Google Slide](shorturl.at/mrNX5)
+* Github repository: [GitHub](shorturl.at/wCP56)
 
-* 
