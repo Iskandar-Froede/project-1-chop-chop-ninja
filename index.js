@@ -11,7 +11,7 @@ const gameOver = document.querySelector('.game-over');
 
 const restart = document.querySelector('.restart');
 
-const showScore = document.querySelector('.ninja-score span');
+const showScore = document.querySelector('.ninja-score');
 
 
 
@@ -62,8 +62,8 @@ let gameId = 0;
 
 function endGame() {
   canvas.style.display = "none";
-  gameOver.style.display = "block";
-  
+  gameOver.style.display = "flex";
+  showScore.innerHTML = score;
 }
 
 // obstacles
@@ -175,7 +175,7 @@ if (
   
 ) {
 isGameOver = true;
-showScore.innerHTML = score;
+
 
 }
 }
@@ -183,7 +183,7 @@ showScore.innerHTML = score;
 
 
 // game is over
-if (isGameOver === true) {
+if (isGameOver) {
   cancelAnimationFrame(gameId)
 endGame ()
 
@@ -299,3 +299,8 @@ function startGame () {
   })
 
 }
+
+
+
+
+// showScore.innerHTML = score;
