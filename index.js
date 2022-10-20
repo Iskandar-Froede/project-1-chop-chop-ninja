@@ -63,53 +63,49 @@ let gameId = 0;
 function endGame() {
   canvas.style.display = "none";
   gameOver.style.display = "block";
-  showScore.innerHTML = score;
   
 }
-
 
 // obstacles
 let obstacles = [ {
   img: obstacle,
   size: 40, 
   x: canvas.width + 5,
-  y: 300
+  y: 270
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 300,
-  y: 280
-
+  y: 270
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 550,
   y: 330
-
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 800,
-  y: 310
-
+  y: 380
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 1050,
   y: 280
-
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 1500,
   y: 300
-
 }
+
+
+
 ];
 
 // showing images on the canvas
@@ -124,6 +120,8 @@ const animate = () => {
   
     ctx.font = "20px Cooper Black";
     ctx.fillText("Score: " + score, 20, 40)
+
+
   
 
   // move canvas
@@ -141,7 +139,7 @@ if (playerMoveRight === true) {
     playerPositionX += 5;
 } else if (playerMoveLeft === true && playerPositionX > 0) {
     playerPositionX -= 5;
-} else if (playerMoveUp === true && playerPositionY + playerSizeX > canvas.height - 160) {
+} else if (playerMoveUp === true && playerPositionY + playerSizeX > canvas.height - 140) {
     playerPositionY -= 8;
 } else if (playerMoveDown === true && playerPositionY + playerSizeY < canvas.height) {
     playerPositionY +=8;
@@ -166,6 +164,7 @@ if (
 ) {
   score++
   console.log(score)
+
 }
 
 if (
@@ -176,6 +175,8 @@ if (
   
 ) {
 isGameOver = true;
+showScore.innerHTML = score;
+
 }
 }
 
@@ -238,6 +239,8 @@ function startGame () {
       //song.play()
   
     startGame();
+
+    
 
   })
   restart.addEventListener('click', () => {
