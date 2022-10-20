@@ -49,6 +49,6 @@ Task
 Links
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-* Presentation slides: [Google Slide](https://docs.google.com/presentation/d/1BOLY2LnPHXJC2yZaf1uU7qQbXqN11p2-suZe8UDxGAY/edit#slide=id.p)
-* Github repository: [GitHub](shorturl.at/wCP56)
+* [Google Slide](https://docs.google.com/presentation/d/1BOLY2LnPHXJC2yZaf1uU7qQbXqN11p2-suZe8UDxGAY/edit#slide=id.p)
+* [GitHub](https://github.com/Iskandar-Froede/project-1-chop-chop-ninja.git)
 
