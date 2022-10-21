@@ -64,38 +64,50 @@ function endGame() {
 let obstacles = [ {
   img: obstacle,
   size: 40, 
-  x: canvas.width + 10,
-  y: 290
+  x: canvas.width + 2,
+  y: 300
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 200,
-  y: 200
+  y: 250
 },
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 550,
-  y: 270
+  x: canvas.width + 450,
+  y: 310
+},
+{
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 600,
+  y: 230
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 800,
-  y: 380
+  y: 290
 },
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 1050,
+  x: canvas.width + 1000,
+  y: 250
+},
+{
+  img: obstacle,
+  size: 40,
+  x: canvas.width + 1200,
   y: 280
 },
 {
   img: obstacle,
   size: 40,
   x: canvas.width + 1500,
-  y: 150
+  y: 230
 }
 ];
 
@@ -126,15 +138,15 @@ if (playerMoveRight === true) {
 } else if (playerMoveLeft === true && playerPositionX > 0) {
     playerPositionX -= 5;
 } else if (playerMoveUp === true && playerPositionY + playerSizeX > canvas.height - 127) {
-    playerPositionY -= 8;
+    playerPositionY -= 7;
 } else if (playerMoveDown === true && playerPositionY + playerSizeY < canvas.height) {
-    playerPositionY +=8;
+    playerPositionY += 7;
 }
 
 // loop & move obstacles
 for (let i = 0; i < obstacles.length; i += 1) {
   ctx.drawImage(obstacles[i].img, obstacles[i].x, obstacles[i].y, 40, 40);
-  obstacles[i].x -= 6;
+  obstacles[i].x -= 7;
 
 if (obstacles[i].x < -200 ) {
   obstacles[i].x = canvas.width + 1000;
@@ -225,44 +237,53 @@ function startGame () {
   isGameOver = false;
   score = 0;
   obstacles = [ {
-      img: obstacle,
-      size: 50, 
-      x: canvas.width + 5,
-      y: 200
-    },
-    {
-      img: obstacle,
-      size: 40,
-      x: canvas.width + 100,
-      y: 300
-    
-    },
-    {
-      img: obstacle,
-      size: 40,
-      x: canvas.width + 550,
-      y: 330
-    
-    },
-    {
-      img: obstacle,
-      size: 40,
-      x: canvas.width + 800,
-      y: 310
-    },
-    {
-      img: obstacle,
-      size: 40,
-      x: canvas.width + 1050,
-      y: 280
-    
-    },
-    {
-      img: obstacle,
-      size: 40,
-      x: canvas.width + 1500,
-      y: 300
-    }
+    img: obstacle,
+    size: 40, 
+    x: canvas.width + 2,
+    y: 300
+  },
+  {
+    img: obstacle,
+    size: 40,
+    x: canvas.width + 200,
+    y: 250
+  },
+  {
+    img: obstacle,
+    size: 40,
+    x: canvas.width + 450,
+    y: 310
+  },
+  {
+    img: obstacle,
+    size: 40,
+    x: canvas.width + 600,
+    y: 230
+  },
+  {
+    img: obstacle,
+    size: 40,
+    x: canvas.width + 800,
+    y: 290
+  },
+  {
+    img: obstacle,
+    size: 40,
+    x: canvas.width + 1000,
+    y: 250
+  },
+  {
+    img: obstacle,
+    size: 40,
+    x: canvas.width + 1200,
+    y: 280
+  },
+  {
+    img: obstacle,
+    size: 40,
+    x: canvas.width + 1500,
+    y: 230
+  }
   ];
 
   playerPositionX = 20;
