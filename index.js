@@ -140,7 +140,7 @@ const animate = () => {
   ctx.drawImage(playerImg, playerPositionX, playerPositionY, playerSizeX, playerSizeY);
   
 // showing score on canvas 
-    ctx.font = "20px Cooper Black";
+    ctx.font = "20px Arial";
     ctx.fillText("Score: " + score, 20, 40)
 
 // timer
