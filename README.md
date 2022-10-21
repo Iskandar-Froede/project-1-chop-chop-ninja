@@ -9,8 +9,8 @@ MVP
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 * player can move up, down, left and right
 * obstacles come from opposite direction at different gaps
-* player avoid the obstacle and get a score
-* game ends if player hits the obstacle
+* player avoid the obstacle in 60seconds and get a score
+* game ends if player hits the obstacle or time is up
 
 Backlog
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
