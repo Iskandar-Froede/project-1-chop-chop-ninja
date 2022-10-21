@@ -30,6 +30,10 @@ playerImg.src = "./img/player-img.png";
 const obstacle = new Image ();
 obstacle.src = "./img/shuriken.png"
 
+const showTimer = document.querySelector('.timer')
+
+const hideTimer = document.querySelector('#hide-timer')
+
 // background
 let backgroundX = 0;
 let background2X = canvas.width;
@@ -53,12 +57,29 @@ let score = 0;
 let isGameOver = false;
 let gameId = 0; 
 
+// set timer
+let timeLeft = 60;
+let intervalId = 0;
+
+// gameover screen
+
 function endGame() {
   canvas.style.display = "none";
   gameOver.style.display = "flex";
   showScore.innerHTML = score;
-  song.pause();
+  song.pause();  
+  hideTimer.style.display = "none";
 }
+
+
+// timer
+function updateTimer() {
+  intervalId = setInterval(() => {
+    timeLeft--
+  }, 1000); 
+  console.log(timeLeft);
+}
+
 
 // obstacles
 let obstacles = [ {
@@ -122,6 +143,9 @@ const animate = () => {
     ctx.font = "20px Cooper Black";
     ctx.fillText("Score: " + score, 20, 40)
 
+// timer
+showTimer.innerText = timeLeft;
+
 // move canvas
   backgroundX -= 2;
   background2X -= 2;
@@ -152,7 +176,7 @@ if (obstacles[i].x < -200 ) {
   obstacles[i].x = canvas.width + 1000;
 }
 
-// collision with obstacles
+// player collision with obstacles
 if (
   obstacles[i].x + 40 <= 0 && 
   obstacles[i].x + 40 >= -4
@@ -160,7 +184,6 @@ if (
 // score
 ) {
   score++
-//  console.log(score)
 }
 
 if (
@@ -174,11 +197,13 @@ isGameOver = true;
 }
 }
 
-// game is over
+// game over
 if (isGameOver) {
 cancelAnimationFrame(gameId)
 endGame ();
 song.pause();
+clearInterval (intervalId);
+hideTimer.style.display = "none";
 
 } else {
   gameId = requestAnimationFrame (animate);  // start the new frame for the game
@@ -220,22 +245,33 @@ function startGame () {
   window.onload = () => {
   canvas.style.display = "none";
   gameOver.style.display = "none";
+  showTimer.innerText = timeLeft;
 
   startButton.addEventListener('click', () => {
   startScreen.style.display = "none";
   canvas.style.display = "block";
+  
+  updateTimer();
 
   song.play()
   
   startGame();
   })
 
+// restart
   restart.addEventListener('click', () => {
   gameOver.style.display = "none";
   canvas.style.display = "block";
 
+  timeLeft = 60;
+  updateTimer();
+
   isGameOver = false;
+
+  hideTimer.style.display = "flex";
+
   score = 0;
+
   obstacles = [ {
     img: obstacle,
     size: 40, 
