@@ -97,7 +97,7 @@ let obstacles = [ {
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 450,
+  x: canvas.width + 400,
   y: 310
 },
 {
@@ -127,7 +127,7 @@ let obstacles = [ {
 {
   img: obstacle,
   size: 40,
-  x: canvas.width + 1500,
+  x: canvas.width + 1400,
   y: 230
 }
 ];
@@ -287,7 +287,7 @@ function startGame () {
   {
     img: obstacle,
     size: 40,
-    x: canvas.width + 450,
+    x: canvas.width + 400,
     y: 310
   },
   {
@@ -317,7 +317,7 @@ function startGame () {
   {
     img: obstacle,
     size: 40,
-    x: canvas.width + 1500,
+    x: canvas.width + 1400,
     y: 230
   }
   ];
