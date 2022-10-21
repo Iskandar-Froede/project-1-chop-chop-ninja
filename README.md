@@ -2,7 +2,7 @@ CHOP CHOP NINJA
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Description
 
-CHOP CHOP NINJA is a single player game with a ninja as the main character. The ninja needs to MOVE FAST to avoid the shurikens in 60 second while gets a score 
+CHOP CHOP NINJA is a single player game with a ninja as the main character. The ninja needs to MOVE FAST to avoid the shurikens in 60 seconds while gets a score 
 for not getting hit. The game ends if the ninja hits by the shuriken. The control movement of ninja is using the arrow keys.
 
 MVP
